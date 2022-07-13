@@ -7,11 +7,12 @@ jobs:
     name: 📦 Draft Release
     runs-on: ubuntu-latest
     steps:
-      - name: 📝 Create a release draft for a milestone
-        id: create-release-milestone
-        uses: ecampidoglio/auto-release-milestone@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Generate Changelog
+        run: echo "# Good things have arrived" > ${{ github.workspace }}-CHANGELOG.txt
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: 🖨️ Print the URL of the release draft
-        if: steps.create-release-milestone.outputs.release-url != ''
-        run: echo ${{ steps.create-release-draft.outputs.release-url }}
+          body_path: ${{ github.workspace }}-CHANGELOG.txt
+          draft: true
