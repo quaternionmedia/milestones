@@ -4,18 +4,16 @@ on:
     types: [closed]
 jobs:
   release:
-    name: 📦 Draft Release
+    name: 📝 Draft Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 📰 Checkout
         uses: actions/checkout@v2
-      - name: Set milestone name
+      - name: 🥌 Set milestone name
         run: echo MILESTONE_NAME=$(jq --raw-output .milestone.title $GITHUB_EVENT_PATH) >> $GITHUB_ENV
-      - name: Check milestone name
-        run: echo Milestone name is $MILESTONE_NAME
-      - name: Generate Changelog
+      - name: 📝 Generate Changelog
         run: echo "# Good things have arrived" > ${{ github.workspace }}-CHANGELOG.txt
-      - name: Release
+      - name: 📦 Release
         uses: softprops/action-gh-release@v1
         with:
           body_path: ${{ github.workspace }}-CHANGELOG.txt
