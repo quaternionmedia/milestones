@@ -9,6 +9,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set milestone name
+        run: echo MILESTONE_NAME=$(jq --raw-output .milestone.title $GITHUB_EVENT_PATH) >> $GITHUB_ENV
+      - name: Check milestone name
+        run: echo Milestone name is $MILESTONE_NAME
       - name: Generate Changelog
         run: echo "# Good things have arrived" > ${{ github.workspace }}-CHANGELOG.txt
       - name: Release
@@ -16,3 +20,6 @@ jobs:
         with:
           body_path: ${{ github.workspace }}-CHANGELOG.txt
           draft: true
+          tag_name: ${{ env.MILESTONE_NAME }}
+          files: ./
+          generate_release_notes: true
