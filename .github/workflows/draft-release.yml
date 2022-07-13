@@ -11,13 +11,15 @@ jobs:
         uses: actions/checkout@v2
       - name: 🥌 Set milestone name
         run: echo MILESTONE_NAME=$(jq --raw-output .milestone.title $GITHUB_EVENT_PATH) >> $GITHUB_ENV
+      - name: 🏷️ Set tag name
+        run: echo TAG_NAME=${MILESTONE_NAME%% *} >> $GITHUB_ENV
       - name: 📝 Generate Changelog
-        run: echo "# ${{ env.MILESTONE_NAME }}" > ${{ github.workspace }}-CHANGELOG.txt
+        run: echo "# ${{ env.TAG_NAME }}" > ${{ github.workspace }}-CHANGELOG.txt
       - name: 📦 Release
         uses: softprops/action-gh-release@v1
         with:
           body_path: ${{ github.workspace }}-CHANGELOG.txt
           draft: true
-          tag_name: ${{ env.MILESTONE_NAME }}
+          tag_name: ${{ env.TAG_NAME }}
           files: ./
           generate_release_notes: true
