@@ -12,7 +12,7 @@ jobs:
       - name: 🥌 Set milestone name
         run: echo MILESTONE_NAME=$(jq --raw-output .milestone.title $GITHUB_EVENT_PATH) >> $GITHUB_ENV
       - name: 📝 Generate Changelog
-        run: echo "# Good things have arrived" > ${{ github.workspace }}-CHANGELOG.txt
+        run: echo "# ${{ env.MILESTONE_NAME }}" > ${{ github.workspace }}-CHANGELOG.txt
       - name: 📦 Release
         uses: softprops/action-gh-release@v1
         with:
