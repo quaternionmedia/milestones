@@ -17,6 +17,8 @@ jobs:
         run: echo TAG_NAME=${MILESTONE_NAME%% *} >> $GITHUB_ENV
       - name: 📝 Generate Changelog
         run: echo "# ${{ env.TAG_NAME }}" > ${{ github.workspace }}-CHANGELOG.txt
+      - name: 🐛 debug
+        run: echo ${{ env }}
       - name: 📦 Release
         uses: softprops/action-gh-release@v1
         with:
