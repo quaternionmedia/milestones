@@ -3,9 +3,6 @@ description: Create a draft release
 runs:
   using: composite
   steps:
-    - name: 📰 Checkout
-      uses: actions/checkout@v3
-
     - name: 🥌 Set milestone name
       run: echo MILESTONE_NAME=$(jq --raw-output .milestone.title $GITHUB_EVENT_PATH) >> $GITHUB_ENV
       shell: bash
