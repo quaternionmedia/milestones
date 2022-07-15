@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📦 Create draft release from milestone
-        uses: quaternionmedia/milestone@v0.5.0
+        uses: quaternionmedia/milestones@v0.5.0
