@@ -24,6 +24,6 @@ body:
     attributes:
       label: Done when
       description: Describe the desired end result, or the steps needed to get there.
-      placeholder: '"When will you make an end?" "When I'm finished!""'
+      placeholder: "\"When will you make an end?\" \"When I'm finished!\""
       value: |
         - [ ]
