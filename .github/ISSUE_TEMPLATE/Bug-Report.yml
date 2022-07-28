@@ -22,8 +22,11 @@ body:
       label: Steps to reproduce
       description: Describe the steps you took to produce the issue.
       placeholder: |
+        1. ...
+      value: |
         1.
-      value: "A bug happened!"
+        2.
+        3.
   - type: textarea
     id: logs
     attributes:
