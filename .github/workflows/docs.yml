@@ -23,4 +23,4 @@ jobs:
         run: |
           git config user.name qm-bot
           git config user.email qm-bot@quaternion.media
-          mike deploy 0.8
+          mike deploy --push 0.8
