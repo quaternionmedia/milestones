@@ -20,4 +20,7 @@ jobs:
         run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mike
 
       - name: 🏗️ Deploy
-        run: mike deploy 0.8
+        run: |
+          git config user.name qm-bot
+          git config user.email qm-bot@quaternion.media
+          mike deploy 0.8
