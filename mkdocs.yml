@@ -3,6 +3,10 @@ site_description: Github actions for creating new milestones
 site_url: https://quaternionmedia.github.io/milestones
 repo_url: https://github.com/quaternionmedia/milestones/
 
+nav:
+  - Home: index.md
+  - Usage: usage.md
+
 markdown_extensions:
   - admonition
   - def_list
