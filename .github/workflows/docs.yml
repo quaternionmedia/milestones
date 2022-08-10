@@ -25,4 +25,4 @@ jobs:
         run: |
           git config user.name qm-bot
           git config user.email qm-bot@quaternion.media
-          mike deploy --push 0.8
+          mike --update-aliases deploy latest --push 0.8
