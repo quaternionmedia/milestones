@@ -21,8 +21,11 @@ jobs:
       - name: 🚧 Install dependencies
         run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mike
 
+      - name: Set version string
+        run: echo VERSION_TITLE=$(mike list | grep latest) >> $GITHUB_ENV
+
       - name: 🏗️ Deploy
         run: |
           git config user.name qm-bot
           git config user.email qm-bot@quaternion.media
-          mike deploy --push --update-aliases 0.8 latest
+          mike deploy --push --update-aliases ${VERSION_TITLE%\[latest\]} latest
