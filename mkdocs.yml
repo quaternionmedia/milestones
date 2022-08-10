@@ -75,6 +75,8 @@ extra:
     - name: GitHub repository
       icon: fontawesome/brands/github
       link: https://github.com/quaternionmedia/milestones/
+  version:
+    provider: mike
 
 extra_css:
   - style/gbh.css
