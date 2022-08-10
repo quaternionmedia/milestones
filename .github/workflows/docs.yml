@@ -22,7 +22,7 @@ jobs:
         run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mike
 
       - name: 🤖 Configure git user
-      - uses: oleksiyrudenko/gha-git-credentials@v2.1
+        uses: oleksiyrudenko/gha-git-credentials@v2.1
         with:
           global: true
           name: qm-bot
