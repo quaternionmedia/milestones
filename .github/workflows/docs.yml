@@ -21,11 +21,16 @@ jobs:
       - name: 🚧 Install dependencies
         run: pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mike
 
-      - name: Set version string
+      - name: 🤖 Configure git user
+      - uses: oleksiyrudenko/gha-git-credentials@v2.1
+        with:
+          global: true
+          name: qm-bot
+          email: qm-bot@quaternion.media
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🧵 Set version string
         run: echo VERSION_TITLE=$(mike list | grep latest) >> $GITHUB_ENV
 
       - name: 🏗️ Deploy
-        run: |
-          git config user.name qm-bot
-          git config user.email qm-bot@quaternion.media
-          mike deploy --push --update-aliases ${VERSION_TITLE%\[latest\]} latest
+        run: mike deploy --push --update-aliases ${VERSION_TITLE%\[latest\]} latest
