@@ -54,7 +54,7 @@ theme:
   features:
     - content.code.annotate # Enable code annotations for a specific block
     - header.autohide # Hide header when scrolling
-    - navigation.instant # Load requests with XHR without reloading page
+    # - navigation.instant # Load requests with XHR without reloading page
     - navigation.sections # Top level sections rendered as group in sidebar
     - navigation.tabs # Top level sections rendered as navbar
     - navigation.tabs.sticky # Tabs visible on scroll
@@ -82,8 +82,3 @@ extra:
       link: https://github.com/quaternionmedia/milestones/
   version:
     provider: mike
-
-extra_css:
-  - style/gbh.css
-  - style/auth.css
-  - style/todo.css
