@@ -5,6 +5,11 @@ branding:
   icon: archive
   color: purple
 
+inputs:
+  draft:
+    description: Create release as a draft
+    default: 'true'
+
 runs:
   using: composite
   steps:
@@ -27,4 +32,4 @@ runs:
         tag_name: ${{ env.TAG_NAME }}
         body: ${{ env.MILESTONE_DESCRIPTION }}
         generate_release_notes: true
-        draft: true
+        draft: ${{ inputs.draft }}
