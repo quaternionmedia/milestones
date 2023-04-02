@@ -1,7 +1,9 @@
 name: 📦 Release
+
 on:
   milestone:
     types: [closed]
+
 jobs:
   release:
     name: 📝 Draft Release
