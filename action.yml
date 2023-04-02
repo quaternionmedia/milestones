@@ -1,5 +1,10 @@
 name: 📝 Draft release
 description: Create a draft release
+author: Quaternion Media
+branding:
+  icon: archive
+  color: purple
+
 runs:
   using: composite
   steps:
