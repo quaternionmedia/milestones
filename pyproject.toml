@@ -1,0 +1,11 @@
+[project]
+name = "milestones"
+version = "1.0.0"
+description = "Create GitHub releases from milestones"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mike>=2.1.3",
+    "mkdocs-git-revision-date-localized-plugin>=1.4.7",
+    "mkdocs-material>=9.6.14",
+]
