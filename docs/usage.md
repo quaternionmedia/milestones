@@ -33,4 +33,6 @@ For example: `v0.1.0 Test 🧪` -> `v0.1.0`
     The milestone name can contain emojis and other markdown characters, but the tag name must only contain alphanumeric symbols.
 
 ## Close milestone
-Close a GitHub milestone, then look in the "Releases" section of your repository. There should be a new draft at the top of the page with
+Close the milestone, and the action will run. Once complete, check the "Releases" section of your repository. There should be a new draft at the top of the page with the name of the milestone. 
+
+If everything looks good, you can publish the release by clicking the "Publish release" button, and it will be visible on the releases page and available for download!

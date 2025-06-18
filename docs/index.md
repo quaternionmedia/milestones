@@ -2,13 +2,15 @@
 
 Github action to create draft releases from closed milestones.
 
-## Marketplace
+## Usage
 
-Available on GitHub marketplace: [draft-release](https://github.com/marketplace/actions/draft-release)
+See the [usage documentation](./usage.md) for details on how to set up and use this action.
 
-## Documentation
+## Links
 
-[quaternionmedia.github.io/milestones](https://quaternionmedia.github.io/milestones/)
+- GitHub marketplace: [draft-release](https://github.com/marketplace/actions/draft-release)
+- Source code: [quaternionmedia/milestones](https://github.com/quaternionmedia/milestones)
+- Documentation: [quaternionmedia.github.io/milestones](https://quaternionmedia.github.io/milestones/)
 
 ## Credits
 
