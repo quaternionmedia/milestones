@@ -14,10 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📰 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 📦 Create draft release from milestone
-        uses: quaternionmedia/milestones@main
+        uses: quaternionmedia/milestones@v1
+        with:
+          # Save release as a draft (default: true)
+          draft: false # Setting this will publish the release immediately
 ```
 
 ## Create milestone

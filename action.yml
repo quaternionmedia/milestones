@@ -13,23 +13,24 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: 🥌 Set milestone name
-      run: echo MILESTONE_NAME=$(jq --raw-output .milestone.title $GITHUB_EVENT_PATH) >> $GITHUB_ENV
-      shell: bash
-
-    - name: ✏️ Set milestone description
-      run: echo MILESTONE_DESCRIPTION=$(jq --raw-output .milestone.description $GITHUB_EVENT_PATH) >> $GITHUB_ENV
-      shell: bash
-
-    - name: 🏷️ Set tag name
-      run: echo TAG_NAME=${MILESTONE_NAME%% *} >> $GITHUB_ENV
-      shell: bash
-
-    - name: 📦 Generate Release
-      uses: softprops/action-gh-release@v2
-      with:
-        name: ${{ env.MILESTONE_NAME }}
-        tag_name: ${{ env.TAG_NAME }}
-        body: ${{ env.MILESTONE_DESCRIPTION }}
-        generate_release_notes: true
-        draft: ${{ inputs.draft }}
+  # Set the release name from the milestone title
+  - name: 🥌 Set milestone name
+    run: echo MILESTONE_NAME=$(jq --raw-output .milestone.title $GITHUB_EVENT_PATH) >> $GITHUB_ENV
+    shell: bash
+  # Set the release description from the milestone description
+  - name: ✏️ Set milestone description
+    run: echo MILESTONE_DESCRIPTION=$(jq --raw-output .milestone.description $GITHUB_EVENT_PATH) >> $GITHUB_ENV
+    shell: bash
+  # Set the tag name from the first word of the milestone name
+  - name: 🏷️ Set tag name
+    run: echo TAG_NAME=${MILESTONE_NAME%% *} >> $GITHUB_ENV
+    shell: bash
+  # Create a release using the GitHub Action
+  - name: 📦 Generate Release
+    uses: softprops/action-gh-release@v2
+    with:
+      name: ${{ env.MILESTONE_NAME }}
+      tag_name: ${{ env.TAG_NAME }}
+      body: ${{ env.MILESTONE_DESCRIPTION }}
+      generate_release_notes: true
+      draft: ${{ inputs.draft }}
